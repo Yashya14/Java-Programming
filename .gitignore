@@ -1,0 +1,3 @@
+*.class
+/practices/*.class
+/patterns/*.class
