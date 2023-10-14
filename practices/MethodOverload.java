@@ -3,12 +3,14 @@ class MethodOver {
         for (int i = 0; i < 2; i++) {
             System.out.println("Delhi is an important city");
         }
+        System.out.println();
     }
 
     void show(String s) {
         for (int i = 0; i < 3; i++) {
             System.out.println(s);
         }
+        System.out.println();
     }
 
     void show(String s, int n) {
@@ -16,6 +18,7 @@ class MethodOver {
         for (int i = 0; i < n; i++) {
             System.out.println(s);
         }
+        System.out.println();
     }
 }
 
