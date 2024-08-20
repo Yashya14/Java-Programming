@@ -16,6 +16,17 @@ These programs are not very sophisticated as these are beginners friendly and ha
 * All the programs are written in visual studio code editor.
 * Create a filename with similar to the class name of java program.
 
+# To run the program : 
+
+1) 
+```java
+    javac filename.java
+```
+2) 
+```java
+    java filename.java
+```
+
 ## Authors
 
 - [@Yashya14](https://github.com/Yashya14)
