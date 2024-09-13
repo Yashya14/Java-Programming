@@ -1,17 +1,18 @@
 package practice2;
+
 import java.util.*;
 
 public class ArrayQue {
-    public static void inputArray(){
+    public static void inputArray() {
         int marks[] = new int[5];
         System.out.println("Enter array of marks : ");
         java.util.Scanner sc = new Scanner(System.in);
-        for(int i=0; i<marks.length; i++){
-           marks[i] = sc.nextInt();
+        for (int i = 0; i < marks.length; i++) {
+            marks[i] = sc.nextInt();
         }
         sc.close();
         int ans = 0;
-        for(int i=0; i<marks.length; i++){
+        for (int i = 0; i < marks.length; i++) {
             ans = ans + marks[i];
             // System.out.print(marks[i] + " ");
             System.out.println("sum is " + ans);
@@ -19,65 +20,65 @@ public class ArrayQue {
         System.out.println();
     }
 
-    public static void updateArray(int marks[]){
-        for(int i=0; i<marks.length;i++){
+    public static void updateArray(int marks[]) {
+        for (int i = 0; i < marks.length; i++) {
             marks[i] = marks[i] + 1;
         }
-        for(int i=0; i<marks.length;i++){
+        for (int i = 0; i < marks.length; i++) {
             System.out.print(marks[i] + " ");
         }
     }
-    
-    public static int linearSearch(int marks[],int key){
-        for(int i = 0;i<marks.length;i++){
-            if(marks[i]==key){
+
+    public static int linearSearch(int marks[], int key) {
+        for (int i = 0; i < marks.length; i++) {
+            if (marks[i] == key) {
                 return i;
             }
         }
         return -1;
     }
-    
-    public static int getLargest(int numbers[]){
+
+    public static int getLargest(int numbers[]) {
         int large = Integer.MIN_VALUE; // - infinity
         int small = Integer.MAX_VALUE;
-        for (int i = 0;i<numbers.length;i++){
-            if(large < numbers[i]){
+        for (int i = 0; i < numbers.length; i++) {
+            if (large < numbers[i]) {
                 large = numbers[i];
             }
-            if(small > numbers[i]){
+            if (small > numbers[i]) {
                 small = numbers[i];
             }
         }
         System.out.println("smallest value is " + small);
         return large;
     }
-    
-    public static int binarySearch(int numbers[], int key){
-        int start = 0,end = numbers.length - 1;
 
-        while(start <= end){
-            int mid = (start + end ) / 2;
-            if(numbers[mid] == key){
+    public static int binarySearch(int numbers[], int key) {
+        int start = 0, end = numbers.length - 1;
+
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            if (numbers[mid] == key) {
                 return mid;
             }
-            if(numbers[mid] < key){
+            if (numbers[mid] < key) {
                 start = mid + 1;
-            }else{
+            } else {
                 end = mid - 1;
             }
         }
         return -1;
     }
-    
-    public static void reverseArray(int numbers[]){
+
+    public static void reverseArray(int numbers[]) {
         System.out.print("\nOriginal array : ");
 
-        for(int i = 0; i < numbers.length;i++){
+        for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + " ");
         }
-        
-        int first = 0,last = numbers.length - 1;
-        while(first < last){
+
+        int first = 0, last = numbers.length - 1;
+        while (first < last) {
             int temp = numbers[last];
             numbers[last] = numbers[first];
             numbers[first] = temp;
@@ -86,16 +87,16 @@ public class ArrayQue {
             last--;
         }
         System.out.print("\nReverse Array : ");
-        for(int i = 0;i < numbers.length;i++){
+        for (int i = 0; i < numbers.length; i++) {
             System.out.print(numbers[i] + " ");
         }
     }
 
-    public static void printPairs(int arr[]){
+    public static void printPairs(int arr[]) {
         int totalPairs = 0;
-        for(int i = 0; i < arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
             int curr = arr[i];
-            for(int j = i+1; j < arr.length;j++){
+            for (int j = i + 1; j < arr.length; j++) {
                 System.out.print("(" + curr + "," + arr[j] + ")");
                 totalPairs++;
             }
@@ -105,14 +106,14 @@ public class ArrayQue {
     }
 
     // continuous subarray
-    public static void printSubArrays(int arr[]){
-        int totalPairs = 0,sum = 0;
-        for(int i = 0;i<arr.length;i++){
+    public static void printSubArrays(int arr[]) {
+        int totalPairs = 0, sum = 0;
+        for (int i = 0; i < arr.length; i++) {
             int start = i;
-            for(int j = i;j<arr.length;j++){
+            for (int j = i; j < arr.length; j++) {
                 int end = j;
                 System.out.print("[ ");
-                for(int k = start;k<=end;k++){
+                for (int k = start; k <= end; k++) {
                     sum += arr[k];
                     System.out.print(arr[k] + " ");
                 }
@@ -124,91 +125,92 @@ public class ArrayQue {
             }
             System.out.println();
         }
-        System.out.println("Total Pairs : " + totalPairs); // n*(n+1)/2 
-        
+        System.out.println("Total Pairs : " + totalPairs); // n*(n+1)/2
+
     }
-    
-    public static void maxSumArray(int arr[]){
+
+    public static void maxSumArray(int arr[]) {
         int currSum = 0, maxSum = Integer.MIN_VALUE;
-        for(int i = 0;i<arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
             int start = i;
-            for(int j = i;j<arr.length;j++){
+            for (int j = i; j < arr.length; j++) {
                 int end = j;
                 currSum = 0;
-                for(int k = start;k<=end;k++){
+                for (int k = start; k <= end; k++) {
                     currSum += arr[k];
-                    
+
                 }
                 System.out.print(currSum + "");
-                if(maxSum < currSum){
+                if (maxSum < currSum) {
                     maxSum = currSum;
                 }
                 System.out.println();
             }
-           System.out.println();
+            System.out.println();
         }
         System.out.println("maximum sum : " + maxSum);
-        
+
     }
-    
+
     // 2nd approach
-    public static void prefixMaxSum(int arr[]){
+    public static void prefixMaxSum(int arr[]) {
         int currSum = 0, maxSum = Integer.MIN_VALUE;
         int prefix[] = new int[arr.length];
 
         prefix[0] = arr[0];
-        for(int i = 1; i < prefix.length;i++){
-            prefix[i] = prefix[i-1] + arr[i];
+        for (int i = 1; i < prefix.length; i++) {
+            prefix[i] = prefix[i - 1] + arr[i];
         }
 
-        for(int i = 0;i<arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
             int start = i;
-            for(int j = i;j<arr.length;j++){
+            for (int j = i; j < arr.length; j++) {
                 int end = j;
 
-                currSum = start == 0 ? prefix[end] : prefix[end] - prefix[start-1];
-                
-                if(maxSum < currSum){
+                currSum = start == 0 ? prefix[end] : prefix[end] - prefix[start - 1];
+
+                if (maxSum < currSum) {
                     maxSum = currSum;
                 }
-                
+
             }
-           
+
         }
         System.out.println("maximum sum : " + maxSum);
-        
+
     }
-    
-    public static void kadanes(int arr[]){
+
+    public static void kadanes(int arr[]) {
         int maxSum = Integer.MIN_VALUE;
         int currSum = 0;
 
-        for(int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             currSum = currSum + arr[i];
-            if(currSum < 0){
+            if (currSum < 0) {
                 currSum = 0;
             }
             maxSum = Math.max(maxSum, currSum);
-        }    
+        }
         System.out.println("Max subarraySum = " + maxSum);
     }
+
     public static void main(String[] args) {
         // inputArray();
-        int marks[] = {1, 2, 3, 4, 5};
+        int marks[] = { 1, 2, 3, 4, 5 };
         // updateArray(marks);
         // linearSearch
         // int ans = linearSearch(marks, 6);
         // System.out.println("At index : "+ ans);
 
         // largerst no in array
-        int numbers[] = {34,2,3,14,90};
+        int numbers[] = { 34, 2, 3, 14, 90 };
         int key = 1;
         // System.out.println("Largest number : "+ getLargest(numbers));
         // System.out.println("index is : " + binarySearch(numbers, key));
 
         // reverseArray(numbers);
         // int arr[] = {2,4,6,8,10};
-        int arr[] = {1,-2,6,-1,3};
+        int arr[] = { 1, -2, 6, -1, 3 };
         // printPairs(arr);
         // printSubArrays(arr);
         // maxSumArray(arr);
