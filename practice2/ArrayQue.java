@@ -179,7 +179,19 @@ public class ArrayQue {
         
     }
     
-    
+    public static void kadanes(int arr[]){
+        int maxSum = Integer.MIN_VALUE;
+        int currSum = 0;
+
+        for(int i = 0; i < arr.length; i++){
+            currSum = currSum + arr[i];
+            if(currSum < 0){
+                currSum = 0;
+            }
+            maxSum = Math.max(maxSum, currSum);
+        }    
+        System.out.println("Max subarraySum = " + maxSum);
+    }
     public static void main(String[] args) {
         // inputArray();
         int marks[] = {1, 2, 3, 4, 5};
@@ -200,6 +212,7 @@ public class ArrayQue {
         // printPairs(arr);
         // printSubArrays(arr);
         // maxSumArray(arr);
-        prefixMaxSum(arr);
+        // prefixMaxSum(arr);
+        kadanes(arr); // optimized version of maxSubArray
     }
 }
