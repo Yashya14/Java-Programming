@@ -91,7 +91,42 @@ public class ArrayQue {
         }
     }
 
+    public static void printPairs(int arr[]){
+        int totalPairs = 0;
+        for(int i = 0; i < arr.length;i++){
+            int curr = arr[i];
+            for(int j = i+1; j < arr.length;j++){
+                System.out.print("(" + curr + "," + arr[j] + ")");
+                totalPairs++;
+            }
+            System.out.println();
+        }
+        System.out.println("total pairs : " + totalPairs); // n*(n-1)/2
+    }
 
+    // continuous subarray
+    public static void printSubArrays(int arr[]){
+        int totalPairs = 0,sum = 0;
+        for(int i = 0;i<arr.length;i++){
+            int start = i;
+            for(int j = i;j<arr.length;j++){
+                int end = j;
+                System.out.print("[ ");
+                for(int k = start;k<=end;k++){
+                    sum += arr[k];
+                    System.out.print(arr[k] + " ");
+                }
+                System.out.print("]");
+                System.out.print(" sum = " + sum);
+                sum = 0;
+                totalPairs++;
+                System.out.println();
+            }
+            System.out.println();
+        }
+        System.out.println("Total Pairs : " + totalPairs); // n*(n+1)/2 
+        
+    }
     public static void main(String[] args) {
         // inputArray();
         int marks[] = {1, 2, 3, 4, 5};
@@ -106,7 +141,9 @@ public class ArrayQue {
         // System.out.println("Largest number : "+ getLargest(numbers));
         // System.out.println("index is : " + binarySearch(numbers, key));
 
-        reverseArray(numbers);
-        
+        // reverseArray(numbers);
+        int arr[] = {2,4,6,8,10};
+        // printPairs(arr);
+        printSubArrays(arr);
     }
 }
