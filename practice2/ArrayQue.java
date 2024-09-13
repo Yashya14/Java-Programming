@@ -68,6 +68,30 @@ public class ArrayQue {
         }
         return -1;
     }
+    
+    public static void reverseArray(int numbers[]){
+        System.out.print("\nOriginal array : ");
+
+        for(int i = 0; i < numbers.length;i++){
+            System.out.print(numbers[i] + " ");
+        }
+        
+        int first = 0,last = numbers.length - 1;
+        while(first < last){
+            int temp = numbers[last];
+            numbers[last] = numbers[first];
+            numbers[first] = temp;
+
+            first++;
+            last--;
+        }
+        System.out.print("\nReverse Array : ");
+        for(int i = 0;i < numbers.length;i++){
+            System.out.print(numbers[i] + " ");
+        }
+    }
+
+
     public static void main(String[] args) {
         // inputArray();
         int marks[] = {1, 2, 3, 4, 5};
@@ -80,7 +104,9 @@ public class ArrayQue {
         int numbers[] = {34,2,3,14,90};
         int key = 1;
         // System.out.println("Largest number : "+ getLargest(numbers));
-        System.out.println("index is : " + binarySearch(numbers, key));
+        // System.out.println("index is : " + binarySearch(numbers, key));
+
+        reverseArray(numbers);
         
     }
 }
