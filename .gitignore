@@ -1,4 +1,5 @@
 *.class
 /practices/*.class
+/practice2/*.class
 /patterns/*.class
 /patterns/patterns/*.class
