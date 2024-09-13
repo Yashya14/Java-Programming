@@ -127,6 +127,31 @@ public class ArrayQue {
         System.out.println("Total Pairs : " + totalPairs); // n*(n+1)/2 
         
     }
+    
+    public static void maxSumArray(int arr[]){
+        int currSum = 0, maxSum = Integer.MIN_VALUE;
+        for(int i = 0;i<arr.length;i++){
+            int start = i;
+            for(int j = i;j<arr.length;j++){
+                int end = j;
+                currSum = 0;
+                for(int k = start;k<=end;k++){
+                    currSum += arr[k];
+                    
+                }
+                System.out.print(currSum + "");
+                if(maxSum < currSum){
+                    maxSum = currSum;
+                }
+                System.out.println();
+            }
+           System.out.println();
+        }
+        System.out.println("maximum sum : " + maxSum);
+        
+    }
+    
+    
     public static void main(String[] args) {
         // inputArray();
         int marks[] = {1, 2, 3, 4, 5};
@@ -142,8 +167,10 @@ public class ArrayQue {
         // System.out.println("index is : " + binarySearch(numbers, key));
 
         // reverseArray(numbers);
-        int arr[] = {2,4,6,8,10};
+        // int arr[] = {2,4,6,8,10};
+        int arr[] = {1,-2,6,-1,3};
         // printPairs(arr);
-        printSubArrays(arr);
+        // printSubArrays(arr);
+        maxSumArray(arr);
     }
 }
