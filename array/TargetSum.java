@@ -1,8 +1,8 @@
 package array;
 
 import java.util.Scanner;
-
 public class TargetSum {
+    // two pair sum problem
     static void targetArraySum(int[] arr,int target){
         int n = arr.length;
         int count = 0;
