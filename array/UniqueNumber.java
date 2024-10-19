@@ -33,6 +33,18 @@ public class UniqueNumber {
         return ans;
         // if ans is 0 then unique element is not present
     }
+
+    static int duplicateElement(int[] arr){
+        int answer = 0;
+        for (int i = 0; i < arr.length; i++) {
+            answer = answer ^ arr[i];
+        }
+
+        for(int i = 0; i < arr.length; i++){
+            answer = answer ^ i;
+        }
+        return answer;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter size of array : ");
@@ -45,6 +57,7 @@ public class UniqueNumber {
         }
 
         // uniqueNo(numbers);
-        System.out.println(uniqueElement(numbers));
+        // System.out.println(uniqueElement(numbers));
+        System.out.println(duplicateElement(numbers));
     }
 }
