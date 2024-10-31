@@ -33,6 +33,46 @@ public class RotateArray {
         }
     }
 
+    // Rotate array by kth steps
+
+    static int[] rotateArrayByK(int[] arr,int k){
+        int n = arr.length;
+        k = k % n;
+
+        int[] ans = new int[n];
+        int j = 0;
+
+        for(int i = n-k;i<n;i++){
+            ans[j++] = arr[i];
+        }
+
+        for(int i=0;i<n-k;i++){
+            ans[j++] = arr[i];
+        }
+        return ans;
+    }
+
+    // rotate an array by kth steps without using extra space
+
+    static void reverse(int[] arr,int start,int end){
+        while(start<end){
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    static void rotateInPlace(int[] arr,int k){
+        int n = arr.length;
+        k = k % n;
+
+        reverse(arr, 0, n-k-1);
+        reverse(arr, n-k, n-1);
+        reverse(arr, 0, n-1);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter size of array : ");
@@ -48,7 +88,9 @@ public class RotateArray {
         // rotateArray(numbers);
         // printArray(numbers);
 
-        alternateArray(numbers);
+        // alternateArray(numbers);
+        // int[] arr = rotateArrayByK(numbers,5);
+        rotateInPlace(numbers,5);
         printArray(numbers);
     }
 }
